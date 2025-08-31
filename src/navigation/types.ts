@@ -14,3 +14,5 @@ export type RootStackParamList = {
 // We can use it in our screen components for type safety.
 export type WelcomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Welcome'>;
 export type LoginScreenProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
+export type AdminDashScreenProps = NativeStackScreenProps<RootStackParamList, 'AdminDash'>;
+export type UserDashScreenProps = NativeStackScreenProps<RootStackParamList, 'UserDash'>;

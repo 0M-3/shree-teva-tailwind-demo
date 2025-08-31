@@ -1,11 +1,12 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
 
 // Import our type definition and screens
 import { RootStackParamList } from './types';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
+import AdminDash from '@/screens/AdminDash';
+import UserDash from '@/screens/UserDash';
 
 // This is where we link our type definition to the navigator
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -20,6 +21,8 @@ const RootNavigator = () => {
         }}>
             <Stack.Screen name="Welcome" component={WelcomeScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="AdminDash" component={AdminDash} />
+            <Stack.Screen name="UserDash" component={UserDash} />
         </Stack.Navigator>
   );
 };

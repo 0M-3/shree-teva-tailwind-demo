@@ -1,3 +1,7 @@
+# Shree Teva Tailwind Demo
+
+This repository contains a demo for the Shree teva app which utilizes Expo, Nativewind, and Supabase.
+
 # Expo Router and Tailwind CSS
 
 Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](https://www.nativewind.dev/v4/overview/) styling.
