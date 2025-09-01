@@ -7,6 +7,8 @@ export type RootStackParamList = {
   // ScreenName: props passed to it | undefined if no props
   Welcome: undefined;
   Login: undefined;
+  AdminDash: undefined;
+  UserDash: undefined;
   // Example with params: Profile: { userId: string };
 };
 
