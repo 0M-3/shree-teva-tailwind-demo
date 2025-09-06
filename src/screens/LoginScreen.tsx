@@ -1,4 +1,4 @@
-import { View, Text, Alert} from 'react-native'
+import { View, Alert} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { LoginScreenProps } from '@/navigation/types'

@@ -42,7 +42,6 @@ export default function Auth() {
           leftIcon={{ type: 'font-awesome', name: 'envelope' }}
           onChangeText={(text) => setEmail(text)}
           value={email}
-          placeholder="email@address.com"
           autoCapitalize={'none'}
         />
       </View>
@@ -53,7 +52,6 @@ export default function Auth() {
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
-          placeholder="Password"
           autoCapitalize={'none'}
         />
       </View>
