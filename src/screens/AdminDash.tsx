@@ -1,9 +1,9 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { AdminDashScreenProps } from '@/navigation/types'
 import HeaderComp from '@/components/Header'
 import '../global.css'
-import { Icon } from '@rneui/base'
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 export default function AdminDash({ navigation }: AdminDashScreenProps) {
   const [activeSection, setActiveSection] = useState('Home')
@@ -19,11 +19,24 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
     } 
   }
 
+  const PressableFeatureBox = ({ name, icon, onPress}) => (
+    <TouchableOpacity onPress={onPress}
+      className='align-center justify-center w-42% aspect-1 bg-white rounded-20 my-12 text-shadow-[#aaa]/5'>
+      <Ionicons name = {icon} size = {50} color = '#3498db'/>
+      <Text className='mt-10 text-15 font-600 text-[#333]'>{name}</Text>
+    </TouchableOpacity>
+  )
   const renderBackButton = () => ( 
-    <TouchableOpacity 
+    <TouchableOpacity className='flex-row items-center mb-12'
       onPress={() => setActiveSection('Home')}>
-      <Icon name='arrow-back-outline'
-        type='ionicons'/>
+      <Ionicons name='arrow-back-outline'
+        type='ionicons'
+        color='#000000'
+        size={30}
+        />
+      <Text className='text-white-500 ml-10'>
+        Back to Home
+      </Text>
     </TouchableOpacity>
   )
 
@@ -40,12 +53,50 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
     </View>
   )
   const HomeComp = () => (
-    <View>
+    <View className='flex-1 bg-[#f4f6f8]'>
       <HeaderComp />
-      
-      <Text>Home</Text>
+      <View className='flex-row justify-around mt-10'>
+        {/* Register New User Button*/}
+        <TouchableOpacity
+          className='flex-row items-center bg-[#2ecc71] py-12 px-16 rounded-10 shadow'
+          onPress={() => setActiveSection('Register')}>
+          <Ionicons name='person-add-outline'
+          type='ionicons'
+          color='#FFFFFF'
+          size={30}/>
+          <Text 
+            className='text-white'
+            >Register
+          </Text>
+        </TouchableOpacity>
+        {/* Role Assign Button*/}
+        <TouchableOpacity className='flex-row items-center bg-[#2ecc71] py-12 px-16 rounded-10 shadow'
+          onPress={() => setActiveSection('RoleAssign')}>
+          <Ionicons  name='person-circle-outline'
+          type='ionicons'
+          color='#FFFFFF'
+          size={30}/>
+          <Text className='text-white'>Assign Role to Existing User</Text>
+        </TouchableOpacity>
+      </View>
+      {/* Features Container */}
+      <View className='flex-1 flex-row justify-around p-12 bg-[#ffffff]'>
+        {/* <PressableFeatureBox /> */}
+        <PressableFeatureBox
+          name='Register'
+          icon='person-add-outline'
+          onPress={() => setActiveSection('Register')}
+        />
+        <PressableFeatureBox
+          name='Assign Role'
+          icon='person-circle-outline'
+          onPress={() => setActiveSection('RoleAssign')}
+        />
+      </View>
     </View>
+
   )
+  
 
   return renderSection()
 }

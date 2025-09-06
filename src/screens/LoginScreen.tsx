@@ -34,7 +34,6 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
       .overrideTypes<{ role: string }>()
     
     if (error) Alert.alert(error.message)
-    console.log(data.role)
     setRole(data.role)
     if (data.role === 'admin') navigation.navigate('AdminDash')
     if (data.role === 'user') navigation.navigate('UserDash')
