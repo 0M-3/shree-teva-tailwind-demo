@@ -4,6 +4,7 @@ import { AdminDashScreenProps } from '@/navigation/types'
 import HeaderComp from '@/components/Header'
 import '../global.css'
 import Ionicons from '@expo/vector-icons/Ionicons'
+import Register from '@/components/Register'
 
 export default function AdminDash({ navigation }: AdminDashScreenProps) {
   const [activeSection, setActiveSection] = useState('Home')
@@ -23,7 +24,7 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
     <TouchableOpacity onPress={onPress}
       className='align-center justify-center w-42% aspect-1 bg-white rounded-20 my-12 text-shadow-[#aaa]/5'>
       <Ionicons name = {icon} size = {50} color = '#3498db'/>
-      <Text className='mt-10 text-15 font-600 text-[#333]'>{name}</Text>
+      <Text className='text-center mt-10 text-15 font-600 text-[#333]'>{name}</Text>
     </TouchableOpacity>
   )
   const renderBackButton = () => ( 
@@ -41,9 +42,10 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
   )
 
   const RegisterComp = () => (
-    <View>
+    <View className='flex-1 bg-[#f4f6f8]'>
       <HeaderComp />
-      <Text>Register</Text>
+        <Register />
+      {renderBackButton()}
     </View>
   )
   const RoleAssignComp = () => (
