@@ -5,6 +5,7 @@ import HeaderComp from '@/components/Header'
 import '../global.css'
 import Ionicons from '@expo/vector-icons/Ionicons'
 import Register from '@/components/Register'
+import RoleAssign from '@/components/RoleAssign'
 
 export default function AdminDash({ navigation }: AdminDashScreenProps) {
   const [activeSection, setActiveSection] = useState('Home')
@@ -51,7 +52,8 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
   const RoleAssignComp = () => (
     <View>
       <HeaderComp />
-      <Text>RoleAssign</Text>
+      <RoleAssign />
+      {renderBackButton()}
     </View>
   )
   const HomeComp = () => (
