@@ -19,17 +19,11 @@ export default function RoleAssign() {
 
   async function updateRole() {
     setLoading(true)
-    const { data:userId, error: error1} = await supabase
-      .from('users')
-      .select('id')
-      .eq('email', email)
-      .single()
-    if (error1) Alert.alert(error1.message)
-    const { error: error2} = await supabase
+    const { error: error} = await supabase
       .from('profiles')
       .update({ role: role })
-      .eq('id', userId.id)
-    if (error2) Alert.alert(error2.message)
+      .eq('email', email)
+    if (error) Alert.alert(error.message)
     setLoading(false)
     
   }

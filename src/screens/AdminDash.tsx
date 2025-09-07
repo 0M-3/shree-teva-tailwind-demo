@@ -36,7 +36,7 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
         color='#000000'
         size={30}
         />
-      <Text className='text-white-500 ml-10'>
+      <Text className='text-center text-white-500 ml-10'>
         Back to Home
       </Text>
     </TouchableOpacity>
@@ -62,7 +62,7 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
       <View className='flex-row justify-around mt-10'>
         {/* Register New User Button*/}
         <TouchableOpacity
-          className='flex-row items-center bg-[#2ecc71] py-12 px-16 rounded-10 shadow'
+          className='flex-col items-center bg-[#2ecc71] py-12 px-16 rounded-10 shadow'
           onPress={() => setActiveSection('Register')}>
           <Ionicons name='person-add-outline'
           type='ionicons'
@@ -74,13 +74,14 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
           </Text>
         </TouchableOpacity>
         {/* Role Assign Button*/}
-        <TouchableOpacity className='flex-row items-center bg-[#2ecc71] py-12 px-16 rounded-10 shadow'
+        <TouchableOpacity 
+          className='flex-col items-center bg-[#2ecc71] py-12 px-16 rounded-10 shadow'
           onPress={() => setActiveSection('RoleAssign')}>
           <Ionicons  name='person-circle-outline'
           type='ionicons'
           color='#FFFFFF'
           size={30}/>
-          <Text className='text-white'>Assign Role to Existing User</Text>
+          <Text className='text-white'>Assign Role</Text>
         </TouchableOpacity>
       </View>
       {/* Features Container */}
