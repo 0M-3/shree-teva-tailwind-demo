@@ -72,6 +72,31 @@ export default function UserDash({navigation}: UserDashScreenProps) {
   const HomeComp = () => (
     <View className='flex-1 bg-[#f4f6f8]'>
       <HeaderComp />
+      <View className='flex-row justify-around mt-10 p-5'>
+        {/* Profile Button*/}
+        <TouchableOpacity
+          className='justify-center items-center flex flex-col bg-[#2ecc71] h-[70] w-[100] rounded-xl shadow'
+          onPress={() => setActiveSection('Profile')}>
+          <Ionicons name='id-card-outline'
+          type='ionicons'
+          color='#FFFFFF'
+          size={30}/>
+          <Text 
+            className='text-white text-center'
+            >Profile
+          </Text>
+        </TouchableOpacity>
+        {/* Reset Password Button*/}
+        <TouchableOpacity 
+          className='flex flex-col items-center bg-[#2ecc71] h-[70] w-[100] rounded-xl shadow'
+          onPress={() => setActiveSection('RoleAssign')}>
+          <Ionicons  name='information-circle-outline'
+          type='ionicons'
+          color='#FFFFFF'
+          size={30}/>
+          <Text className='text-center text-white'>Reset Password</Text>
+        </TouchableOpacity>
+      </View>
       {/* Features Container */}
       <View className='flex flex-row bg-[#ffffff]'>
         {/* <PressableFeatureBox /> */}

@@ -9,12 +9,18 @@ import RoleAssign from '@/components/RoleAssign'
 import Quote from '@/components/Quote'
 import Sales from '@/components/Sales'
 import Purchase from '@/components/Purchase'
+import ProfileComp from '@/components/Profile'
+import ResetPass from '@/components/ResetPass'
 
 export default function AdminDash({ navigation }: AdminDashScreenProps) {
   const [activeSection, setActiveSection] = useState('Home')
 
   const renderSection = () => {
     switch (activeSection) {
+      case 'ResetPassword':
+        return <ResetPassComp/>
+      case 'Profile':
+        return <ProfilerComp />
       case 'Register':
         return <RegisterComp />
       case 'RoleAssign':
@@ -51,6 +57,21 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
         Back to Home
       </Text>
     </TouchableOpacity>
+  )
+
+  const ResetPassComp = () => (
+    <View className='flex-1 bg-[#f4f6f8]'>
+      <HeaderComp />
+      <ResetPass/>
+      {renderBackButton()}
+    </View>
+  )
+  const ProfilerComp = () => (
+    <View className='flex-1 bg-[#f4f6f8]'>
+      <HeaderComp />
+      <ProfileComp />
+      {renderBackButton()}
+    </View>
   )
 
   const RegisterComp = () => (
@@ -97,28 +118,28 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
     <View className='flex-1 bg-[#f4f6f8]'>
       <HeaderComp />
       <View className='flex-row justify-around mt-10 p-5'>
-        {/* Register New User Button*/}
+        {/* Profile Button*/}
         <TouchableOpacity
-          className='items-center flex flex-col bg-[#2ecc71] h-[70] w-[100] rounded-10 shadow'
-          onPress={() => setActiveSection('Register')}>
-          <Ionicons name='person-add-outline'
+          className='justify-center items-center flex flex-col bg-[#2ecc71] h-[70] w-[100] rounded-xl shadow'
+          onPress={() => setActiveSection('Profile')}>
+          <Ionicons name='id-card-outline'
           type='ionicons'
           color='#FFFFFF'
           size={30}/>
           <Text 
-            className='text-white'
-            >Register
+            className='text-white text-center'
+            >Profile
           </Text>
         </TouchableOpacity>
-        {/* Role Assign Button*/}
+        {/* Reset Password Button*/}
         <TouchableOpacity 
-          className='flex flex-col items-center bg-[#2ecc71] h-[70] w-[100] rounded-10 shadow'
-          onPress={() => setActiveSection('RoleAssign')}>
-          <Ionicons  name='person-circle-outline'
+          className='flex flex-col items-center bg-[#2ecc71] h-[70] w-[100] rounded-xl shadow'
+          onPress={() => setActiveSection('ResetPassword')}>
+          <Ionicons  name='information-circle-outline'
           type='ionicons'
           color='#FFFFFF'
           size={30}/>
-          <Text className='text-white'>Assign Role</Text>
+          <Text className='text-center text-white'>Reset Password</Text>
         </TouchableOpacity>
       </View>
       {/* Features Container */}

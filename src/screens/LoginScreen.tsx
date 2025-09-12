@@ -35,8 +35,8 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
     
     if (error) Alert.alert(error.message)
     setRole(data.role)
-    if (data.role === 'admin') navigation.navigate('AdminDash')
-    if (data.role === 'user') navigation.navigate('UserDash')
+    if (data.role == 'admin') navigation.navigate('AdminDash')
+    if (data.role == 'user') navigation.navigate('UserDash')
   }
 
   return (
