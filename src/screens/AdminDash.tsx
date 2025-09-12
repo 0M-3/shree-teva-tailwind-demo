@@ -30,7 +30,7 @@ export default function AdminDash({ navigation }: AdminDashScreenProps) {
     } 
   }
 
-  const PressableFeatureBox = ({ name, icon, onPress}) => (
+    const PressableFeatureBox = ({ name, icon, onPress}: {name: string, icon: any, onPress: () => void}) => (
     <TouchableOpacity onPress={onPress}
       className='items-center justify-center w-1/3 h-13 bg-white rounded-20 my-12 text-shadow-[#aaa]/5'>
       <Ionicons className='' 

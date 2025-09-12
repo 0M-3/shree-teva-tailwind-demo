@@ -14,6 +14,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const RootNavigator = () => {
   return (
         <Stack.Navigator
+        id={undefined}
         // You can set initial screen and global screen options here
         initialRouteName="Welcome"
         screenOptions={{

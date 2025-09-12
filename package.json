@@ -29,6 +29,7 @@
     "react-native": "0.79.1",
     "react-native-element-dropdown": "^2.12.4",
     "react-native-elements": "^3.4.2",
+    "react-native-input-spinner": "^1.8.1",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "~4.10.0",
