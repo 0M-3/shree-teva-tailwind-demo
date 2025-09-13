@@ -6,22 +6,40 @@ import { supabase } from '@/lib/supabase'
 export default function Sales() {
     // TODO Create a sales function to export to the User and Admin Dashboards
     const [loading, setLoading] = useState(false)
-    const [sales, setSales] = useState({
+    interface Sale {
+      company:string;
+      location:string;
+      company_person:string;
+      designation:string;
+      phone_number:string;
+      mail_id:string;
+      comment:string;
+      card:string;
+    }
+    const [sales, setSales] = useState<Sale | null>({
       company:'',
       location:'',
       company_person:'',
       designation:'',
-      phone_number:'',
+      phone_number:'', 
       mail_id:'',
       comment:'',
       card:'',
     })
+
+    const handlePhoneNumberChange = (text:string) => {
+      const numericText = text.replace(/^[0-9]/g, '')
+      setSales({ ...sales, phone_number: numericText })
+    }
   
     async function submitSales() {
       setLoading(true)
+      const submitData = {...sales, 
+        phone_number: sales.phone_number ? Number(sales.phone_number) : null,
+      }
       const {error} = await supabase
         .from('sales')
-        .insert(sales)
+        .insert(submitData)
       if (error) Alert.alert(error.message)
       setLoading(false)
     }
@@ -60,7 +78,7 @@ export default function Sales() {
       <Input 
         label="Phone Number"
         placeholder='Enter Phone number of Company Person'
-        onChangeText={(text) => setSales({...sales, phone_number: text})}
+        onChangeText={handlePhoneNumberChange}
         value = {sales.phone_number}
         keyboardType='numeric'
         autoCapitalize='none'
