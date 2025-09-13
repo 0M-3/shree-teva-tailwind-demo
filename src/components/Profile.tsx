@@ -1,7 +1,6 @@
 import { View, Text, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry'
 
 export default function ProfileComp() {
     const [profile_data, setProfile_data] = useState({
